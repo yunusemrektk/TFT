@@ -1,7 +1,8 @@
 package com.app.tft.data.repository
 
-import com.app.tft.data.remote.RiotApi
+import com.app.tft.data.remote.api.RiotApi
 import com.app.tft.data.remote.dto.user.toSummoner
+
 import com.app.tft.domain.model.Summoner
 import com.app.tft.domain.repository.SummonerRepository
 import javax.inject.Inject

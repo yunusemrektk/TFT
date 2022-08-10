@@ -1,11 +1,11 @@
 package com.app.tft.domain.model
 
 data class Summoner(
+    val sid: String,
     val accountId: String,
-    val id: String,
+    val puuid: String,
     val name: String,
     val profileIconId: Int,
-    val puuid: String,
     val revisionDate: Long,
     val summonerLevel: Int
 )

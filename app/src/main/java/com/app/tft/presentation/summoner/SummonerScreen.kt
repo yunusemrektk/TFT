@@ -28,7 +28,7 @@ fun SummonerScreen(
 
             ) {
                 Text(
-                    text = data.id,
+                    text = data.sid,
                     style = MaterialTheme.typography.h5,
                     overflow = TextOverflow.Ellipsis,
                     color = Color.Black

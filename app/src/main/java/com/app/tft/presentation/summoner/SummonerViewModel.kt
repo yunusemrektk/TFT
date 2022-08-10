@@ -5,7 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.app.tft.domain.repository.SummonerDbRepository
 import com.app.tft.domain.repository.SummonerRepository
+import com.app.tft.domain.usecases.DeleteSummonerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -13,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SummonerViewModel @Inject constructor(
-    private val repository: SummonerRepository
+    private val repository: SummonerRepository,
+    private val deleteSummonerUseCase: DeleteSummonerUseCase
 ) : ViewModel() {
 
     var state by mutableStateOf(SummonerState())
