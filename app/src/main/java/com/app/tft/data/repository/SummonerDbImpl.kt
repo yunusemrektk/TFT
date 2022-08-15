@@ -1,26 +1,35 @@
 package com.app.tft.data.repository
 
+import com.app.tft.data.db.dao.SummonerDAO
+import com.app.tft.data.db.mapper.SummonerMapper
 import com.app.tft.domain.model.Summoner
 import com.app.tft.domain.repository.SummonerDbRepository
 import javax.inject.Inject
 
 class SummonerDbImpl @Inject constructor(
-    private val summonerDataSource: SummonerDataSource
+    private val summonerDAO: SummonerDAO,
+    private val summonerMapper: SummonerMapper
 ) : SummonerDbRepository {
 
-    override suspend fun insertSummoner(summoner: Summoner) {
-        return summonerDataSource.insertSummoner(summoner)
+    override fun insertSummoner(summoner: Summoner) {
+        val result = getSummonerByName(summoner.name)
+        if(result.name.isBlank()) {
+           return summonerDAO.insert(summonerMapper.toSummonerEntity(summoner))
+        }
     }
 
-    override suspend fun deleteSummoner(summoner: Summoner) {
-        return summonerDataSource.deleteSummoner(summoner)
+    override fun deleteSummoner(summoner: Summoner) {
+        return summonerDAO.delete(summonerMapper.toSummonerEntity(summoner))
     }
 
-    override suspend fun getAllSummoner(): List<Summoner> {
-        return summonerDataSource.getAllSummoner()
+    override fun getAllSummoner(): List<Summoner> {
+        return summonerDAO.getAllSummoner().map {
+            Summoner(it.sid,it.accountId, it.puuid, it.name,
+                it.profileIconId, it.revisionDate, it.summonerLevel) }
+
     }
 
-    override suspend fun getSummonerByName(name: String): Summoner {
-        return summonerDataSource.getSummonerByName(name)
+    override fun getSummonerByName(name: String): Summoner {
+        return summonerMapper.toSummoner(summonerDAO.getSummonerByName(name))
     }
 }

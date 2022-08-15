@@ -10,8 +10,8 @@ class SummonerMapper {
             sid = summoner.sid,
             accountId = summoner.accountId,
             puuid =  summoner.puuid,
-            profileIconId = summoner.profileIconId,
             name = summoner.name,
+            profileIconId = summoner.profileIconId,
             revisionDate = summoner.revisionDate,
             summonerLevel = summoner.summonerLevel
         )
@@ -22,8 +22,8 @@ class SummonerMapper {
             sid = summonerEntity.sid,
             accountId = summonerEntity.accountId,
             puuid =  summonerEntity.puuid,
-            profileIconId = summonerEntity.profileIconId,
             name = summonerEntity.name,
+            profileIconId = summonerEntity.profileIconId,
             revisionDate = summonerEntity.revisionDate,
             summonerLevel = summonerEntity.summonerLevel
         )

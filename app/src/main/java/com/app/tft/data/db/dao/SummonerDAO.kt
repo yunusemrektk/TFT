@@ -1,12 +1,8 @@
 package com.app.tft.data.db.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.app.tft.data.db.entity.SummonerEntity
-import com.app.tft.data.remote.dto.user.SummonerDto
-import dagger.Provides
+
 
 @Dao
 interface SummonerDAO {

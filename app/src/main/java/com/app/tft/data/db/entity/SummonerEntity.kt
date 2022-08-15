@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+
 @Entity(tableName = "Summoner")
 class SummonerEntity (
 
@@ -26,9 +27,9 @@ class SummonerEntity (
     @ColumnInfo(name = "profileIconId")
     var profileIconId: Int,
 
-    @ColumnInfo(name = "profileIconId")
+    @ColumnInfo(name = "revisionDate")
     var revisionDate: Long,
 
-    @ColumnInfo(name = "profileIconId")
+    @ColumnInfo(name = "summonerLevel")
     var summonerLevel: Int
     )

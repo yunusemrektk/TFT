@@ -5,11 +5,11 @@ import com.app.tft.domain.model.Summoner
 
 interface SummonerDbRepository {
 
-    suspend fun insertSummoner(summoner: Summoner)
+    fun insertSummoner(summoner: Summoner)
 
-    suspend fun deleteSummoner(summoner: Summoner)
+    fun deleteSummoner(summoner: Summoner)
 
-    suspend fun getAllSummoner(): List<Summoner>
+    fun getAllSummoner(): List<Summoner>
 
-    suspend fun getSummonerByName(name: String): Summoner
+    fun getSummonerByName(name: String): Summoner
 }

@@ -13,5 +13,5 @@ data class SummonerDto(
 )
 
 fun SummonerDto.toSummoner(): Summoner {
-    return Summoner(id, accountId, name, puuid, profileIconId, revisionDate, summonerLevel)
+    return Summoner(id, accountId, puuid, name, profileIconId, revisionDate, summonerLevel)
 }
