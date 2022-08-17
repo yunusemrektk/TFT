@@ -18,5 +18,5 @@ interface SummonerDAO {
 
 
     @Query("SELECT * FROM Summoner WHERE name = :name")
-    fun getSummonerByName(name: String): SummonerEntity
+    fun getSummonerByName(name: String): SummonerEntity?
 }

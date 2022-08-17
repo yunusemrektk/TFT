@@ -11,5 +11,5 @@ interface SummonerDbRepository {
 
     fun getAllSummoner(): List<Summoner>
 
-    fun getSummonerByName(name: String): Summoner
+    fun getSummonerByName(name: String): Summoner?
 }

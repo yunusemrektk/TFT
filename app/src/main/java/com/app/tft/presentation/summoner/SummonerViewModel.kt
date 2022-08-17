@@ -6,6 +6,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.app.tft.data.route.Router
+import com.app.tft.data.route.RouterEnum
 import com.app.tft.domain.model.Summoner
 import com.app.tft.domain.repository.SummonerDbRepository
 import com.app.tft.domain.repository.SummonerRemoteRepository
@@ -29,7 +31,9 @@ class SummonerViewModel @Inject constructor(
         try {
             viewModelScope.launch {
                 state = state.copy(isLoading = true)
-                remoteRepository.getSummonerByName(name).let {
+                //TODO Get  router from main page
+                //TODO Get  router from main page
+                remoteRepository.getSummonerByName(Router.fromIndex(RouterEnum.TR1),name).let {
                     state = state.copy(isLoading = false, summoner = it, error = null)
                     saveSummoner(it)
                 }
@@ -45,7 +49,7 @@ class SummonerViewModel @Inject constructor(
 
         localRepository.insertSummoner(summoner)
         val sum = localRepository.getSummonerByName(summoner.name)
-        println(sum.name)
+
         // Insert Data
 
 

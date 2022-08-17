@@ -12,10 +12,7 @@ class SummonerDbImpl @Inject constructor(
 ) : SummonerDbRepository {
 
     override fun insertSummoner(summoner: Summoner) {
-        val result = getSummonerByName(summoner.name)
-        if(result.name.isBlank()) {
-           return summonerDAO.insert(summonerMapper.toSummonerEntity(summoner))
-        }
+        val result = getSummonerByName(summoner.name) ?: return summonerDAO.insert(summonerMapper.toSummonerEntity(summoner))
     }
 
     override fun deleteSummoner(summoner: Summoner) {
@@ -29,7 +26,8 @@ class SummonerDbImpl @Inject constructor(
 
     }
 
-    override fun getSummonerByName(name: String): Summoner {
-        return summonerMapper.toSummoner(summonerDAO.getSummonerByName(name))
+    override fun getSummonerByName(name: String): Summoner? {
+        summonerDAO.getSummonerByName(name) ?: return null
+        return summonerMapper.toSummoner(summonerDAO.getSummonerByName(name)!!)
     }
 }
